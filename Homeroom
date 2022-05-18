@@ -1,0 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package mockiagrouper;
+
+
+public class Homeroom {
+  private String name;
+  private int id;
+  private String[] students;
+
+
+  public Homeroom(String theName, String[] theStudents, int theId) {
+      name = theName;
+      id = theId;
+      students = theStudents;
+  }
+  
+  public String[] getStudents() {
+      return students;
+  }
+}
