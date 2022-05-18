@@ -1,0 +1,130 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mockiagrouper;
+
+/**
+ * Controller 
+ * @author Roberto
+ * 
+ */
+
+public class MockIAGrouper {
+    
+    GrouperImportWindow importer = new GrouperImportWindow();
+    GrouperMainWindow main = new GrouperMainWindow();
+    GrouperSettingsWindow settings = new GrouperSettingsWindow();
+    Homeroom[] rooms = new Homeroom[20];
+    int numRooms = 0;
+    int currentId = 0;
+    int groupSize = 0;
+    
+    public void start() 
+    {
+        main.setVisible(true);
+        main.setController(this);
+        importer.setController(this);
+        settings.setController(this);
+    }
+    
+    public void importClicked() 
+    {
+        importer.setVisible(true);
+    }
+    
+    public void settingsClicked() 
+    {
+        settings.setVisible(true);
+    }
+    
+    public void importCloseClicked() 
+    {
+        importer.setVisible(false);
+    }
+    
+    public void settingsCloseClicked() 
+    {
+        settings.setVisible(false);
+    }
+    
+    public void settingsSaveClicked(int id, String numGroupsString) 
+    {
+      groupSize = Integer.valueOf(numGroupsString);
+      currentId = id;
+      settings.setVisible(false);
+      
+    }
+    
+    public void createClicked() {
+       String answer = "";
+       int tracker = 0;
+       int groupNumber = 1;
+       String[] finalClass = rooms[currentId].getStudents();
+       int noLostStudents = finalClass.length%groupSize;
+        
+       for (int i=0; i <= finalClass.length-1; i++) 
+       {
+       int randomPosition = i + (int) (Math.random() * (finalClass.length - i));
+       String temp = finalClass[i];
+       finalClass[i] = finalClass[randomPosition];
+       finalClass[randomPosition] = temp;
+       }
+       
+       for (int j = 0 ; j < finalClass.length/groupSize ; j++)
+       {
+        answer = answer + "\n" + "Group "  + groupNumber ;
+        answer = answer + "\n";
+        groupNumber++;
+            for(int y = 0 ; y < groupSize ; y++)
+            {      
+             answer = answer + finalClass[tracker] + "\n";
+             tracker++;
+            } 
+       }
+       
+       if (noLostStudents != 0)
+       {
+        for (int j = 0 ; j < 1 ; j++)
+            {
+        answer = answer + "\n" + "Group "  + groupNumber ;
+        answer = answer + "\n";
+        groupNumber++;
+            for(int y = 0 ; y < noLostStudents ; y++)
+                {      
+             answer = answer + finalClass[tracker] + "\n";
+             tracker++;
+                } 
+            }
+       }
+       main.setAnswer(answer);
+    }
+    
+    void classCreateButtonClicked(String homeroomName, String homeroomStudentList) 
+     {
+         String[]Students = homeroomStudentList.split("\n");
+         int id = numRooms;
+         numRooms++;
+         Homeroom newRoom = new Homeroom(homeroomName, Students, id);
+         rooms[id] = newRoom;
+         importer.importerCleanUp();
+         importer.setVisible(false);
+         settings.setDropList(homeroomName);
+     }
+
+    void clearData()
+    {
+        rooms = new Homeroom[rooms.length];
+        settings.clearList();
+        numRooms = 0;
+        main.clearGroups();
+    }
+    
+    
+    public static void main(String[] args) {
+        MockIAGrouper c = new MockIAGrouper();
+        c.start();
+    }
+    
+}
+ 
