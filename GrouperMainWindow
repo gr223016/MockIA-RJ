@@ -1,0 +1,173 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package mockiagrouper;
+
+/**
+ *
+ * @author Roberto
+ */
+public class GrouperMainWindow extends javax.swing.JFrame {
+
+    /**
+     * Creates new form GrouperWindow
+     */
+    public GrouperMainWindow() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        importButton = new javax.swing.JButton();
+        settingsButton = new javax.swing.JButton();
+        CreateGroupsButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        finalGroupOutput = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        clearData = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        importButton.setText("Import Students");
+        importButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importButtonActionPerformed(evt);
+            }
+        });
+
+        settingsButton.setText("Group Preferences");
+        settingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settingsButtonActionPerformed(evt);
+            }
+        });
+
+        CreateGroupsButton.setText("Create Groups");
+        CreateGroupsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateGroupsButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("University of Texas - History Department");
+
+        jLabel2.setText("Master Group Tool");
+
+        finalGroupOutput.setColumns(20);
+        finalGroupOutput.setRows(5);
+        jScrollPane1.setViewportView(finalGroupOutput);
+
+        jLabel3.setText("Groups");
+
+        clearData.setText("Clear Data");
+        clearData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearDataActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(clearData))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CreateGroupsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(importButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addGap(76, 76, 76))
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                        .addGap(12, 12, 12)))
+                .addContainerGap(194, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(44, 44, 44)
+                .addComponent(importButton)
+                .addGap(52, 52, 52)
+                .addComponent(settingsButton)
+                .addGap(50, 50, 50)
+                .addComponent(CreateGroupsButton)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearData)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        controller.importClicked();
+    }                                            
+
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        controller.settingsClicked();
+    }                                              
+
+    private void CreateGroupsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+       controller.createClicked();
+    }                                                  
+
+    private void clearDataActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        controller.clearData();
+    }                                         
+
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton CreateGroupsButton;
+    private javax.swing.JButton clearData;
+    private javax.swing.JTextArea finalGroupOutput;
+    private javax.swing.JButton importButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton settingsButton;
+    // End of variables declaration                   
+
+    private MockIAGrouper controller;
+    
+    public void setController(MockIAGrouper c) {
+        controller = c;
+    }
+
+    public void setAnswer (String answer)
+    {
+      finalGroupOutput.setText(answer);
+    }
+    
+    public void clearGroups ()
+    {
+      finalGroupOutput.setText("");
+    }
+}
